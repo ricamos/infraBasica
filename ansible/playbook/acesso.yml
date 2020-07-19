@@ -1,0 +1,4 @@
+- name: Aplicando as roles de Compliance
+  hosts: acesso 
+  roles:
+   - melvin_suter.openldap

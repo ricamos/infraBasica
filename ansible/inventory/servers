@@ -1,0 +1,15 @@
+[all:vars]
+ansible_user=root
+interpreter_python=auto_silent
+host_key_checking = False
+private_key_file = /root/.ssh/id_rsa
+
+[hosts]
+#192.168.0.[110:160:50]
+
+[automation]
+automation-01.sgp.local ansible_python_interpreter=/usr/bin/python
+
+[acesso]
+acesso-01.sgp.local 
+
