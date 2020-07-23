@@ -1,0 +1,9 @@
+- hosts: acesso
+  become: yes
+  gather_facts: false
+  pre_tasks:
+    - name: install python 2
+      raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+      changed_when: False
+  roles:
+    - ansible-deploy-ldap-fusiondirectory

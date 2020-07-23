@@ -11,5 +11,5 @@ private_key_file = /root/.ssh/id_rsa
 automation-01.sgp.local ansible_python_interpreter=/usr/bin/python
 
 [acesso]
-acesso-01.sgp.local 
+acesso-01.sgp.local #ansible_python_interpreter=/usr/bin/python2.7 
 

@@ -1,0 +1,21 @@
+---
+# handlers file for openldap
+
+- name: Restart slapd
+  service:
+    name: slapd
+    state: restarted
+
+- name: Habilitar slapd
+  systemd:
+   name: slapd
+   state: started
+   enabled: yes
+
+- name: Aplicar bd
+  command: |
+    ldapadd -Q -Y EXTERNAL -H ldapi:/// -f bd.ldif
+  become: yes
+  args:
+    chdir: /etc/openldap
+  no_log: false

@@ -1,0 +1,32 @@
+---
+# tasks file for openldap
+- name: Instalar pacotes
+  yum:
+   name: "{{ item }}"
+   state: present
+  loop:
+    - openldap-servers
+    - openldap-clients
+    - python-ldap
+    - compat-openldap
+    - cyrus-sasl-devel
+    - openldap-devel
+    - openldap-servers-sql
+    - unixODBC
+    - vim
+
+
+
+- name: Criar bd
+  template:
+    src: /etc/ansible/roles/openldap/templates/bd.ldif.j2
+    dest: /etc/openldap/bd.ldif
+    #owner: openldap
+    #group: openldap
+  notify:
+    - Aplicar bd
+    - Habilitar slapd
+    - Restart slapd
+
+
+
